@@ -13,11 +13,11 @@ This project implements the Data Access Layer (DAL) of an airport flight arrival
 
 ## 2. Engineering Team Details (Single-Workstation Driver–Navigator)
 
-| Name                   | College e-mail                      |ID|
-|----------------------- |-------------------------------------|---------|
-| Lior Shor              | Lior.Shor@e.braude.ac.il            |212272793|
-| Guy Gabi Kikozashvili  | Guy.Gabi.Kikozashvil@e.braude.ac.il |324096403|
-| Amir Kosover           | Amir.Kosover@e.braude.ac.il         |212131296|
+| Name                   | College e-mail                      |
+|----------------------- |-------------------------------------|
+| Lior Shor              | Lior.Shor@e.braude.ac.il            |
+| Guy Gabi Kikozashvili  | Guy.Gabi.Kikozashvil@e.braude.ac.il |
+| Amir Kosover           | Amir.Kosover@e.braude.ac.il         |
 
 
 * **GitHub Repository URL:** `https://github.com/[GuyKiko]/JDBC_FlightManager`
