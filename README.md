@@ -20,7 +20,7 @@ This project implements the Data Access Layer (DAL) of an airport flight arrival
 | Amir Kosover           | Amir.Kosover@e.braude.ac.il         |212131296|
 
 
-* **GitHub Repository URL:** `https://github.com/[Username]/JDBC_FlightManager`
+* **GitHub Repository URL:** `https://github.com/[GuyKiko]/JDBC_FlightManager`
 
 ---
 
