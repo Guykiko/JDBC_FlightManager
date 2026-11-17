@@ -61,17 +61,31 @@ Decomposing the table so that `fromC` is stored once per flight removes all thre
 ## 5. Independent AI Prompt (Part 4 – `FlightViewer.java`)
 
 ```text
-Write a complete Java class named FlightViewer with a main method.
-Use Scanner to ask for the MySQL root password, then ask the user to enter a target terminal number (valid values: 2, 3, 4, 5). Read both inputs with scanner.nextLine().
-Connect to MySQL using DriverManager with URL: "jdbc:mysql://localhost:3306/FlightDB?allowLoadLocalInfile=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Jerusalem&useSSL=false" and user "root".
-Use try-with-resources for Connection, PreparedStatement and ResultSet.
-Use a secure PreparedStatement with a '?' placeholder to execute this query:
-SELECT a.id, a.flight_number, r.from_city, a.scheduled, a.delay_status, a.terminal FROM Arrivals a INNER JOIN FlightRoutes r ON a.flight_number = r.flight_number WHERE a.terminal = ? ORDER BY a.scheduled ASC
-The terminal column is VARCHAR(10), so bind the parameter with pstmt.setString(1, terminal) and NOT setInt.
-Print the results as a formatted table using System.out.printf with a header row and fixed column widths (make the city column at least 20 characters wide).
-After the table, print the total number of flights found for that terminal. If no rows are found, print a clear message.
-Catch SQLException and print the error code and message.
-Import every class you use.
+Write a Java class named FlightViewer with a main method.
+The program should:
+1. Ask the user to enter the MySQL root password.
+2. Ask the user to enter a terminal number (2, 3, 4, or 5).
+3. Use Scanner and nextLine() to read both inputs.
+4. Connect to the MySQL database using DriverManager with the following details:
+    * URL: jdbc:mysql://localhost:3306/FlightDB?allowLoadLocalInfile=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Jerusalem&useSSL=false
+    * Username: root
+    * Password: The password entered by the user.
+5. Run the SQL query to get all flights arriving at the selected terminal:
+SELECT a.id, a.flight_number, r.from_city, a.scheduled,
+       a.delay_status, a.terminal
+FROM Arrivals a
+INNER JOIN FlightRoutes r
+ON a.flight_number = r.flight_number
+WHERE a.terminal = ?
+ORDER BY a.scheduled ASC
+6. Use PreparedStatement and ? to insert the terminal number into the query. Since the terminal column is a VARCHAR, use setString().
+7. Print the flight information in a table using System.out.printf.
+8. Count the flights and print the total number at the end.
+9. If no flights are found, print a message saying that no flights were found.
+10. Use try-with-resources for the database connection, statement and result set.
+11. If a database error occurs, catch SQLException and print its error code and message.
+12. Import all the classes used in the program.
+
 ```
 
 ---
